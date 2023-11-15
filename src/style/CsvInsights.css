@@ -1,0 +1,71 @@
+/* CsvInsights.css */
+
+/* Container Styles */
+.max-w-screen-md {
+    max-width: 768px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 16px;
+  }
+  
+  /* File Upload Styles */
+  .file-upload-container {
+    margin-bottom: 16px;
+  }
+  
+  .file-upload-label {
+    display: block;
+    border: 2px dashed #ccc;
+    padding: 16px;
+    cursor: pointer;
+  }
+  
+  /* Column Selection Styles */
+  .column-selection-container {
+    margin-bottom: 16px;
+  }
+  
+  .column-label {
+    margin-right: 16px;
+    font-size: 16px;
+  }
+  
+  .column-checkbox {
+    margin-right: 8px;
+  }
+  
+  /* Chart Selection Styles */
+  .chart-selection-container {
+    margin-bottom: 16px;
+  }
+  
+  .chart-label {
+    margin-right: 16px;
+    font-size: 16px;
+  }
+  
+  .chart-dropdown {
+    padding: 8px;
+  }
+  
+  /* Generate Chart Button Styles */
+  .generate-chart-button {
+    margin-left: 8px;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Chart Display Styles */
+  .chart-display-container {
+    margin-top: 16px;
+  }
+  
+  .chart-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
