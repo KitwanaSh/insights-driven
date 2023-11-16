@@ -57,10 +57,14 @@ const CsvInsights = () => {
   };
 
   const generateChart = () => {
-    if (selectedChartColumns.length < 2) {
-      alert('Please select at least two columns for the chart');
-      return;
-    }
+    try {
+      if (selectedChartColumns.length >= 2) {
+        alert('Please select at least two columns for the chart');
+        return;
+      }
+  } catch(error) {
+    console.error("Error generting chart", error)
+  }
 
     // Implement your logic for generating the chart based on selectedColumns and data
     switch (selectedChart) {
@@ -88,6 +92,7 @@ const CsvInsights = () => {
   };
 
   const generateLineChartData = () => {
+    console.log("Generating Line chart")
     return {
       labels: data.map((entry) => entry[selectedChartColumns[0]]),
       datasets: selectedChartColumns.slice(1).map((column, index) => ({
