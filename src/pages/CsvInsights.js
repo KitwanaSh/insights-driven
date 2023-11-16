@@ -10,29 +10,29 @@ import RadarChart from '../components/RadarChart';
 import BubbleChart from '../components/BubbleChart';
 
 const CsvInsights = () => {
-    const [data, setData] = useState([]);
-    const [selectedColumns, setSelectedColumns] = useState([]);
-    const [selectedChart, setSelectedChart] = useState('line');
-    const [selectedChartColumns, setSelectedChartColumns] = useState([]);
-    const [chartData, setChartData] = useState(null);
+  const [data, setData] = useState([]);
+  const [selectedColumns, setSelectedColumns] = useState([]);
+  const [selectedChart, setSelectedChart] = useState('line');
+  const [selectedChartColumns, setSelectedChartColumns] = useState([]);
+  const [chartData, setChartData] = useState(null);
 
-    const handleFileChange = async (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          const result = await new Promise((resolve) => {
-            Papa.parse(file, {
-              complete: (result) => {
-                resolve(result);
-              },
-            });
-          });
-    
-          const headerRow = result.data[0];
-          const newData = result.data.slice(1);
-          setData(newData);
-          setSelectedColumns(headerRow);
-        }
-      };
+  const handleFileChange = async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const result = await new Promise((resolve) => {
+        Papa.parse(file, {
+          complete: (result) => {
+            resolve(result);
+          },
+        });
+      });
+
+      const headerRow = result.data[0];
+      const newData = result.data.slice(1);
+      setData(newData);
+      setSelectedColumns(headerRow);
+    }
+  };
 
   const handleColumnSelect = (e) => {
     const selectedColumn = e.target.value;
@@ -182,18 +182,24 @@ const CsvInsights = () => {
 
   return (
     <div className="max-w-screen-md mx-auto p-4">
-        <div>
-            <h2 className="text-2xl font-bold mb-2">Upload CSV File</h2>
-            <input type="file" accept=".csv" onChange={handleFileChange} />
-        </div>
-
+      <div className='p-20 bg-gray-600 text-white'><p>I am here</p></div>
+      <div className="mb-8 bg-gray-100 p-6 rounded-lg shadow-md">
+        <h2 className="text-3xl font-extrabold text-indigo-700 mb-4">Upload CSV File</h2>
+        <label className="block text-sm text-gray-600">Choose a CSV file:</label>
+        <input
+          type="file"
+          accept=".csv"
+          onChange={handleFileChange}
+          className="mt-2 p-3 border border-indigo-500 rounded-md focus:outline-none focus:ring focus:border-indigo-400"
+        />
+      </div>
 
       {data.length > 0 && (
-        <div className="mb-4">
+        <div className="mb-8">
           <h2 className="text-2xl font-bold mb-2">Select Columns</h2>
-          <div>
+          <div className="flex flex-wrap">
             {selectedColumns.map((column) => (
-              <label key={column} className="mr-4 text-lg">
+              <label key={column} className="mr-4 text-lg flex items-center">
                 <input
                   type="checkbox"
                   value={column}
@@ -205,27 +211,31 @@ const CsvInsights = () => {
               </label>
             ))}
           </div>
-          <div className="mt-2">
+
+          <div className="mt-4">
             <label className="text-lg font-bold mr-2">Select Chart Type:</label>
-            <select value={selectedChart} onChange={handleChartSelect} className="p-2">
+            <select
+              value={selectedChart}
+              onChange={handleChartSelect}
+              className="p-2 border rounded"
+            >
               <option value="line">Line Chart</option>
               <option value="bar">Bar Chart</option>
-              {/* <option value="histogram">Histogram Chart</option> */}
               <option value="scatter">Scatter Plot</option>
               <option value="area">Area Chart</option>
-              {/* <option value="boxWhisker">Box and Whisker Chart</option> */}
               <option value="radar">Radar Chart</option>
               <option value="bubble">Bubble Chart</option>
             </select>
           </div>
-          <div className="mt-4">
+
+          <div className="mt-4 flex items-center">
             <label className="text-lg font-bold mr-2">Select Columns for Chart:</label>
             {selectedChartColumns.map((column, index) => (
               <select
                 key={index}
                 value={column}
                 onChange={(e) => handleChartColumnSelect(e, index)}
-                className="p-2 mr-2"
+                className="p-2 border rounded mr-2"
               >
                 {selectedColumns.map((col) => (
                   <option key={col} value={col}>
