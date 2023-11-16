@@ -1,7 +1,7 @@
 import './App.css';
 
 import React from 'react';
-import CsvInsights from './CsvInsights';
+import CsvInsights from './pages/CsvInsights';
 
 function App() {
   return (
