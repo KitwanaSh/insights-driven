@@ -187,7 +187,6 @@ const CsvInsights = () => {
 
   return (
     <div className="max-w-screen-md mx-auto p-4">
-      <div className='p-20 bg-gray-600 text-white'><p>I am here</p></div>
       <div className="mb-8 bg-gray-100 p-6 rounded-lg shadow-md">
         <h2 className="text-3xl font-extrabold text-indigo-700 mb-4">Upload CSV File</h2>
         <label className="block text-sm text-gray-600">Choose a CSV file:</label>
@@ -195,7 +194,7 @@ const CsvInsights = () => {
           type="file"
           accept=".csv"
           onChange={handleFileChange}
-          className="mt-2 p-3 border border-indigo-500 rounded-md focus:outline-none focus:ring focus:border-indigo-400"
+          className="mt-2 p-3 border border-indigo-500 rounded-md focus:outline-none focus:ring focus:border-indigo-400 hover:pointer"
         />
       </div>
 
